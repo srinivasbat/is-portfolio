@@ -632,74 +632,58 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                background: transparent;
+                box-shadow: none;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+                padding: 0;
+                height: 60px;
+            }
+            .logo {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                z-index: 1001;
+            }
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%;
-                width: 70%;
+                right: 0;
                 height: 100vh;
-                background: rgba(10, 10, 18, 0.95);
-                backdrop-filter: blur(10px);
+                width: 70vw;
+                background: rgba(10, 10, 20, 0.98);
+                box-shadow: -2px 0 16px rgba(0,0,0,0.2);
+                display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                transition: right 0.5s ease;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding-top: 80px;
+                padding-left: 32px;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(.77,0,.18,1);
                 z-index: 1000;
             }
-
             .nav-links.active {
-                right: 0;
+                transform: translateX(0);
             }
-
-            .menu-toggle {
-                display: flex;
-                z-index: 1001;
+            .nav-links a {
+                font-size: 1.3rem;
+                margin-bottom: 32px;
+                color: #00eaff;
+                text-shadow: 0 2px 8px #000;
             }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
+            body {
+                padding-top: 0;
             }
-
-            .portfolio-item {
-                margin: 0 1rem;
-            }
-
-            .contact-form {
-                margin: 0 1rem;
-                padding: 2rem;
-            }
-            
-            // Hamburger menu toggle
-            const menuToggle = document.getElementById('menu-toggle');
-            const navLinks = document.getElementById('nav-links');
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('open');
-            });
-            // Close menu when a link is clicked (mobile UX)
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('open');
-                });
-            });
-            // Reduce animation intensity for mobile
-            if (window.innerWidth <= 768) {
-                // Example: Reduce particles or animation speed if you have such JS
-                // You can add more logic here as needed
-            }
-            
-            .particle {
-                opacity: 0.3 !important;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
+            main, .hero, .portfolio, .about, .contact {
+                margin-top: 0;
+                padding-top: 16px;
             }
         }
     </style>
