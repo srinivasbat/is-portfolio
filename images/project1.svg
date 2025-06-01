@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a1f" />
+      <stop offset="100%" stop-color="#1a1a3f" />
+    </linearGradient>
+    <radialGradient id="character-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00ffa3" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#00ffa3" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)" />
+  
+  <!-- Cyberpunk grid lines -->
+  <g stroke="#00ffa3" stroke-width="1" opacity="0.2">
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="0" y1="500" x2="800" y2="500" />
+    
+    <line x1="100" y1="0" x2="100" y2="600" />
+    <line x1="200" y1="0" x2="200" y2="600" />
+    <line x1="300" y1="0" x2="300" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="600" />
+    <line x1="500" y1="0" x2="500" y2="600" />
+    <line x1="600" y1="0" x2="600" y2="600" />
+    <line x1="700" y1="0" x2="700" y2="600" />
+  </g>
+  
+  <!-- Glow effect -->
+  <circle cx="400" cy="300" r="200" fill="url(#character-glow)" opacity="0.7" />
+  
+  <!-- Cyberpunk Character Silhouette -->
+  <g transform="translate(300, 150)" fill="#00ffa3">
+    <!-- Head -->
+    <circle cx="100" cy="100" r="60" fill="none" stroke="#00ffa3" stroke-width="3" />
+    
+    <!-- Face details -->
+    <path d="M70 90 L90 85 L110 85 L130 90" fill="none" stroke="#00ffa3" stroke-width="2" />
+    <circle cx="80" cy="80" r="5" />
+    <circle cx="120" cy="80" r="5" />
+    
+    <!-- Cybernetic implants -->
+    <path d="M40 70 L70 80" fill="none" stroke="#00ffa3" stroke-width="2" />
+    <path d="M160 70 L130 80" fill="none" stroke="#00ffa3" stroke-width="2" />
+    <rect x="30" y="65" width="10" height="10" />
+    <rect x="160" y="65" width="10" height="10" />
+    
+    <!-- Helmet/mask elements -->
+    <path d="M60 50 C80 20, 120 20, 140 50" fill="none" stroke="#00ffa3" stroke-width="3" />
+    <path d="M60 150 C80 180, 120 180, 140 150" fill="none" stroke="#00ffa3" stroke-width="2" />
+    
+    <!-- Body outline -->
+    <path d="M70 160 L70 250 L130 250 L130 160" fill="none" stroke="#00ffa3" stroke-width="3" />
+    
+    <!-- Armor details -->
+    <path d="M70 180 L130 180" fill="none" stroke="#00ffa3" stroke-width="2" />
+    <path d="M70 210 L130 210" fill="none" stroke="#00ffa3" stroke-width="2" />
+    <path d="M90 160 L90 250" fill="none" stroke="#00ffa3" stroke-width="2" />
+    <path d="M110 160 L110 250" fill="none" stroke="#00ffa3" stroke-width="2" />
+  </g>
+  
+  <!-- Tech circuit patterns -->
+  <g stroke="#00ffa3" stroke-width="1.5" fill="none">
+    <path d="M50 50 L100 50 L100 100 L150 100 L150 50 L200 50" />
+    <path d="M600 550 L650 550 L650 500 L700 500 L700 550 L750 550" />
+    <path d="M50 550 L100 550 L100 500 L150 500" />
+    <path d="M650 50 L700 50 L700 100 L750 100" />
+  </g>
+  
+  <!-- Glowing particles -->
+  <g fill="#00ffa3">
+    <circle cx="200" cy="150" r="2" opacity="0.8" />
+    <circle cx="220" cy="170" r="1" opacity="0.6" />
+    <circle cx="180" cy="190" r="1.5" opacity="0.7" />
+    <circle cx="600" cy="250" r="2" opacity="0.8" />
+    <circle cx="580" cy="270" r="1" opacity="0.6" />
+    <circle cx="620" cy="290" r="1.5" opacity="0.7" />
+    <circle cx="300" cy="450" r="2" opacity="0.8" />
+    <circle cx="320" cy="470" r="1" opacity="0.6" />
+    <circle cx="280" cy="490" r="1.5" opacity="0.7" />
+    <circle cx="500" cy="150" r="2" opacity="0.8" />
+    <circle cx="520" cy="170" r="1" opacity="0.6" />
+    <circle cx="480" cy="190" r="1.5" opacity="0.7" />
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="36" fill="#ffffff" text-anchor="middle" font-weight="bold">NEON WARRIOR</text>
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="20" fill="#00ffa3" text-anchor="middle">CYBERPUNK CHARACTER DESIGN</text>
+</svg>

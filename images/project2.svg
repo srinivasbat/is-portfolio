@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a1f" />
+      <stop offset="100%" stop-color="#1a1a3f" />
+    </linearGradient>
+    <radialGradient id="crystal-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00bfff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#00bfff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="crystal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00bfff" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#00ffa3" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ff3366" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)" />
+  
+  <!-- Environment grid -->
+  <g stroke="#00bfff" stroke-width="1" opacity="0.15">
+    <!-- Horizontal lines with perspective -->
+    <path d="M0 350 C266 380, 533 380, 800 350" />
+    <path d="M0 400 C266 420, 533 420, 800 400" />
+    <path d="M0 450 C266 460, 533 460, 800 450" />
+    <path d="M0 500 C266 500, 533 500, 800 500" />
+    <path d="M0 550 C266 540, 533 540, 800 550" />
+    
+    <!-- Vertical lines with perspective -->
+    <path d="M100 350 C100 400, 100 450, 100 550" />
+    <path d="M200 350 C200 400, 200 450, 200 550" />
+    <path d="M300 350 C300 400, 300 450, 300 550" />
+    <path d="M400 350 C400 400, 400 450, 400 550" />
+    <path d="M500 350 C500 400, 500 450, 500 550" />
+    <path d="M600 350 C600 400, 600 450, 600 550" />
+    <path d="M700 350 C700 400, 700 450, 700 550" />
+  </g>
+  
+  <!-- Glow effect -->
+  <circle cx="400" cy="250" r="200" fill="url(#crystal-glow)" opacity="0.7" />
+  
+  <!-- Crystal Structures -->
+  <g>
+    <!-- Central Crystal Formation -->
+    <polygon points="400,100 350,200 300,300 400,350 500,300 450,200" fill="url(#crystal-gradient)" opacity="0.8" />
+    <polygon points="400,100 350,200 400,250 450,200" fill="#ffffff" opacity="0.3" />
+    <polygon points="350,200 300,300 400,350 400,250" fill="#ffffff" opacity="0.1" />
+    <polygon points="400,250 400,350 500,300 450,200" fill="#ffffff" opacity="0.2" />
+    
+    <!-- Crystal Outlines -->
+    <polyline points="400,100 350,200 300,300 400,350 500,300 450,200 400,100" fill="none" stroke="#00bfff" stroke-width="2" />
+    <line x1="350" y1="200" x2="400" y2="250" stroke="#00bfff" stroke-width="1" />
+    <line x1="400" y1="250" x2="450" y2="200" stroke="#00bfff" stroke-width="1" />
+    <line x1="400" y1="250" x2="400" y2="350" stroke="#00bfff" stroke-width="1" />
+    <line x1="400" y1="250" x2="300" y2="300" stroke="#00bfff" stroke-width="1" opacity="0.5" />
+    <line x1="400" y1="250" x2="500" y2="300" stroke="#00bfff" stroke-width="1" opacity="0.5" />
+    
+    <!-- Smaller Crystal Formations -->
+    <polygon points="200,250 220,200 250,220 240,270" fill="url(#crystal-gradient)" opacity="0.7" />
+    <polygon points="600,220 620,180 650,210 630,250" fill="url(#crystal-gradient)" opacity="0.7" />
+    <polygon points="300,400 320,370 350,390 330,420" fill="url(#crystal-gradient)" opacity="0.6" />
+    <polygon points="500,380 520,350 550,370 530,400" fill="url(#crystal-gradient)" opacity="0.6" />
+    
+    <!-- Crystal Outlines -->
+    <polyline points="200,250 220,200 250,220 240,270 200,250" fill="none" stroke="#00bfff" stroke-width="1" />
+    <polyline points="600,220 620,180 650,210 630,250 600,220" fill="none" stroke="#00bfff" stroke-width="1" />
+    <polyline points="300,400 320,370 350,390 330,420 300,400" fill="none" stroke="#00bfff" stroke-width="1" />
+    <polyline points="500,380 520,350 550,370 530,400 500,380" fill="none" stroke="#00bfff" stroke-width="1" />
+  </g>
+  
+  <!-- Floating Particles -->
+  <g fill="#00bfff">
+    <circle cx="200" cy="150" r="2" opacity="0.8" />
+    <circle cx="220" cy="170" r="1" opacity="0.6" />
+    <circle cx="180" cy="190" r="1.5" opacity="0.7" />
+    <circle cx="600" cy="150" r="2" opacity="0.8" />
+    <circle cx="580" cy="170" r="1" opacity="0.6" />
+    <circle cx="620" cy="190" r="1.5" opacity="0.7" />
+    <circle cx="300" cy="100" r="2" opacity="0.8" />
+    <circle cx="320" cy="120" r="1" opacity="0.6" />
+    <circle cx="280" cy="140" r="1.5" opacity="0.7" />
+    <circle cx="500" cy="120" r="2" opacity="0.8" />
+    <circle cx="520" cy="140" r="1" opacity="0.6" />
+    <circle cx="480" cy="160" r="1.5" opacity="0.7" />
+  </g>
+  
+  <!-- Organic Elements (Plants) -->
+  <g stroke="#00ffa3" fill="none">
+    <!-- Plant 1 -->
+    <path d="M150 450 C170 420, 160 400, 150 380" stroke-width="2" />
+    <path d="M150 450 C130 420, 140 400, 150 380" stroke-width="2" />
+    <path d="M150 400 C170 380, 160 360, 150 340" stroke-width="1.5" />
+    <path d="M150 400 C130 380, 140 360, 150 340" stroke-width="1.5" />
+    
+    <!-- Plant 2 -->
+    <path d="M650 450 C670 420, 660 400, 650 380" stroke-width="2" />
+    <path d="M650 450 C630 420, 640 400, 650 380" stroke-width="2" />
+    <path d="M650 400 C670 380, 660 360, 650 340" stroke-width="1.5" />
+    <path d="M650 400 C630 380, 640 360, 650 340" stroke-width="1.5" />
+  </g>
+  
+  <!-- Digital Circuit Patterns -->
+  <g stroke="#00bfff" stroke-width="1" opacity="0.6" fill="none">
+    <path d="M50 50 L100 50 L100 100 L150 100" />
+    <path d="M650 50 L700 50 L700 100 L750 100" />
+    <path d="M50 550 L100 550 L100 500 L150 500" />
+    <path d="M650 550 L700 550 L700 500 L750 500" />
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="36" fill="#ffffff" text-anchor="middle" font-weight="bold">CRYSTAL NEXUS</text>
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="20" fill="#00bfff" text-anchor="middle">VR ENVIRONMENT</text>
+</svg>
