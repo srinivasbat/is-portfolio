@@ -97,6 +97,37 @@
             width: 100%;
         }
 
+        /* Hamburger Menu Styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
         .hero {
             height: 100vh;
             display: flex;
@@ -602,15 +633,32 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                gap: 1rem;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(10, 10, 18, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.5s ease;
+                z-index: 1000;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+                z-index: 1001;
             }
 
             .hero-content h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
 
             .portfolio-item {
@@ -621,159 +669,50 @@
                 margin: 0 1rem;
                 padding: 2rem;
             }
-        }
-    </style>
-    <script>
-        // Create enhanced interactive particles for the portfolio section
-        document.addEventListener('DOMContentLoaded', function() {
-            const portfolioSection = document.querySelector('.portfolio');
-            const particlesContainer = document.createElement('div');
-            particlesContainer.classList.add('particles');
-            portfolioSection.appendChild(particlesContainer);
             
-            // Create initial background particles
-            for (let i = 0; i < 50; i++) {
-                const x = Math.random() * portfolioSection.offsetWidth;
-                const y = Math.random() * portfolioSection.offsetHeight;
-                createParticle(particlesContainer, x, y, true);
-            }
-            
-            // Add mousemove trail effect
-            let lastX = 0;
-            let lastY = 0;
-            let throttleTimer;
-            
-            portfolioSection.addEventListener('mousemove', function(e) {
-                if (throttleTimer) return;
-                
-                throttleTimer = setTimeout(() => {
-                    throttleTimer = null;
-                }, 20); // Throttle to improve performance
-                
-                const rect = portfolioSection.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                // Calculate distance moved
-                const distance = Math.sqrt(Math.pow(x - lastX, 2) + Math.pow(y - lastY, 2));
-                
-                // Create particles along the path for smoother trail
-                if (distance > 5) {
-                    const steps = Math.min(Math.floor(distance / 5), 3);
-                    for (let i = 0; i < steps; i++) {
-                        const stepX = lastX + (x - lastX) * (i / steps);
-                        const stepY = lastY + (y - lastY) * (i / steps);
-                        createParticle(particlesContainer, stepX, stepY, false);
-                    }
-                }
-                
-                lastX = x;
-                lastY = y;
+            // Hamburger menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open');
             });
-            
-            // Add click burst effect
-            portfolioSection.addEventListener('click', function(e) {
-                const rect = portfolioSection.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                // Create a burst of particles
-                for (let i = 0; i < 20; i++) {
-                    setTimeout(() => {
-                        createParticle(particlesContainer, x, y, false, true);
-                    }, i * 20);
-                }
-            });
-            
-            // Function to create a particle
-            function createParticle(container, x, y, isBackground = false, isBurst = false) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                container.appendChild(particle);
-                
-                // Randomize particle properties
-                const size = Math.random() * (isBackground ? 3 : 8) + (isBackground ? 1 : 3);
-                const opacity = Math.random() * 0.5 + (isBackground ? 0.1 : 0.3);
-                const hue = Math.floor(Math.random() * 60) + (Math.random() > 0.5 ? 140 : 180); // Cyan or green hues
-                
-                // Randomize particle shape
-                const shapes = ['50%', '0%'];
-                const borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${x}px`;
-                particle.style.top = `${y}px`;
-                particle.style.opacity = opacity;
-                particle.style.borderRadius = borderRadius;
-                particle.style.backgroundColor = `hsla(${hue}, 100%, 70%, ${opacity})`;
-                particle.style.boxShadow = `0 0 ${size * 2}px hsla(${hue}, 100%, 70%, ${opacity * 0.5})`;
-                particle.style.position = 'absolute';
-                particle.style.zIndex = isBackground ? '0' : '2';
-                
-                // Create a random angle for the particle to move
-                const angle = Math.random() * Math.PI * 2;
-                const velocity = isBurst ? (Math.random() * 150 + 100) : (Math.random() * 100 + 50);
-                const dx = Math.cos(angle) * velocity;
-                const dy = Math.sin(angle) * velocity;
-                
-                // More complex animation with rotation and pulsing
-                const keyframes = [
-                    { 
-                        transform: 'translate(0, 0) scale(1) rotate(0deg)', 
-                        opacity: opacity,
-                        boxShadow: `0 0 ${size * 2}px hsla(${hue}, 100%, 70%, ${opacity})`
-                    },
-                    { 
-                        transform: `translate(${dx/2}px, ${dy/2}px) scale(${isBurst ? 1.5 : 1.2}) rotate(${Math.random() * 180}deg)`, 
-                        opacity: opacity * 0.8,
-                        boxShadow: `0 0 ${size * 3}px hsla(${hue}, 100%, 70%, ${opacity * 0.8})`,
-                        offset: 0.5
-                    },
-                    { 
-                        transform: `translate(${dx}px, ${dy}px) scale(0) rotate(${Math.random() * 360}deg)`, 
-                        opacity: 0,
-                        boxShadow: `0 0 0px hsla(${hue}, 100%, 70%, 0)`
-                    }
-                ];
-                
-                const duration = isBackground ? (Math.random() * 3000 + 2000) : (Math.random() * 1500 + 800);
-                
-                particle.animate(keyframes, {
-                    duration: duration,
-                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-                }).onfinish = () => particle.remove();
-            }
-            
-            // Add floating effect to portfolio items
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            portfolioItems.forEach((item, index) => {
-                // Add slight delay to each item for staggered effect
-                const delay = index * 0.2;
-                item.style.animationDelay = `${delay}s`;
-                
-                // Add hover listener for particle effect
-                item.addEventListener('mouseenter', function() {
-                    // Create particles around the item on hover
-                    const rect = item.getBoundingClientRect();
-                    const portfolioRect = portfolioSection.getBoundingClientRect();
-                    
-                    for (let i = 0; i < 10; i++) {
-                        setTimeout(() => {
-                            const x = rect.left - portfolioRect.left + Math.random() * rect.width;
-                            const y = rect.top - portfolioRect.top + Math.random() * rect.height;
-                            createParticle(particlesContainer, x, y, false);
-                        }, i * 50);
-                    }
+            // Close menu when a link is clicked (mobile UX)
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
                 });
             });
-        });
-    </script>
+            // Reduce animation intensity for mobile
+            if (window.innerWidth <= 768) {
+                // Example: Reduce particles or animation speed if you have such JS
+                // You can add more logic here as needed
+            }
+            
+            .particle {
+                opacity: 0.3 !important;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="container nav">
             <div class="logo">IS</div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#portfolio">Portfolio</a>
@@ -1018,5 +957,40 @@
             observer.observe(bar);
         });
     </script>
+<script>
+    // Hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        // Toggle menu when hamburger is clicked
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when a nav link is clicked
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Check if device is mobile to reduce animations
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            // Reduce particle count for mobile
+            const particleCount = 20; // Reduced from 50
+            
+            // Disable mousemove particle effects on mobile
+            const portfolioSection = document.querySelector('.portfolio');
+            if (portfolioSection) {
+                portfolioSection.removeEventListener('mousemove', function(){});
+            }
+        }
+    });
+</script>
 </body>
 </html>
