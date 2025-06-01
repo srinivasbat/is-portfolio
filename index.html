@@ -708,12 +708,12 @@
     <header class="header">
         <div class="container nav">
             <div class="logo">IS</div>
-            <div class="menu-toggle">
+            <div class="menu-toggle" id="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links">
                 <a href="#home">Home</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#about">About</a>
@@ -958,39 +958,19 @@
         });
     </script>
 <script>
-    // Hamburger menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        // Toggle menu when hamburger is clicked
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close menu when a nav link is clicked
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Check if device is mobile to reduce animations
-        const isMobile = window.innerWidth <= 768;
-        if (isMobile) {
-            // Reduce particle count for mobile
-            const particleCount = 20; // Reduced from 50
-            
-            // Disable mousemove particle effects on mobile
-            const portfolioSection = document.querySelector('.portfolio');
-            if (portfolioSection) {
-                portfolioSection.removeEventListener('mousemove', function(){});
-            }
-        }
+// Hamburger menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('open');
     });
+});
 </script>
 </body>
 </html>
