@@ -106,6 +106,9 @@
             height: 21px;
             cursor: pointer;
             z-index: 1001;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
         .menu-toggle span {
@@ -635,35 +638,6 @@
             /* Hamburger menu in top right corner */
             .menu-toggle {
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 21px;
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 1001;
-                cursor: pointer;
-            }
-            
-            .menu-toggle span {
-                width: 100%;
-                height: 3px;
-                background-color: #00eaff;
-                border-radius: 3px;
-                transition: all 0.3s ease;
-            }
-            
-            .menu-toggle.open span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-            
-            .menu-toggle.open span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .menu-toggle.open span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
             }
             
             /* Navigation panel */
@@ -689,12 +663,13 @@
             .nav-links a {
                 margin: 15px 0;
                 font-size: 1.2rem;
-                color: #00eaff;
             }
             
             /* Content alignment fixes */
-            header {
+            .header {
                 background: transparent;
+                box-shadow: none;
+                border-bottom: none;
             }
             
             .logo {
@@ -702,40 +677,58 @@
             }
             
             body {
-                padding-top: 60px;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                overflow-x: hidden;
+                max-width: 100vw;
             }
             
             .container {
                 padding: 0 15px;
                 width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
                 box-sizing: border-box;
             }
             
             main, .hero, .portfolio, .about, .contact {
-                margin-top: 20px;
+                margin: 0;
                 padding: 20px 0;
                 width: 100%;
+                max-width: 100vw;
+                overflow-x: hidden;
             }
             
             h1, h2, h3 {
                 text-align: center;
                 width: 100%;
                 word-break: break-word;
+                max-width: 100%;
+            }
+            
+            .hero-content {
+                padding: 1rem;
+                width: 100%;
+                max-width: 100%;
             }
             
             .hero-content h1 {
                 font-size: 2.5rem;
                 margin-bottom: 10px;
+                width: 100%;
             }
             
             .hero-content p {
                 font-size: 1rem;
                 margin-bottom: 20px;
+                width: 100%;
             }
             
             .portfolio-grid, .about-content {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                width: 100%;
             }
             
             .contact-form, .portfolio-item {
@@ -1036,7 +1029,7 @@
         if (menuToggle && navLinks) {
             menuToggle.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('open');
+                menuToggle.classList.toggle('active');
             });
             
             // Close menu when a link is clicked
@@ -1044,7 +1037,7 @@
             links.forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
-                    menuToggle.classList.remove('open');
+                    menuToggle.classList.remove('active');
                 });
             });
         }
