@@ -691,6 +691,73 @@
                 font-size: 1.2rem;
                 color: #00eaff;
             }
+            
+            /* Content alignment fixes */
+            header {
+                background: transparent;
+            }
+            
+            .logo {
+                display: none;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+            
+            .container {
+                padding: 0 15px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            main, .hero, .portfolio, .about, .contact {
+                margin-top: 20px;
+                padding: 20px 0;
+                width: 100%;
+            }
+            
+            h1, h2, h3 {
+                text-align: center;
+                width: 100%;
+                word-break: break-word;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+            
+            .portfolio-grid, .about-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-form, .portfolio-item {
+                margin: 10px auto;
+                width: 90%;
+                max-width: 400px;
+                padding: 15px;
+            }
+            
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                margin: 10px auto;
+                display: block;
+                width: fit-content;
+            }
         }
     </style>
 </head>
